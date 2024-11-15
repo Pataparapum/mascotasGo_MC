@@ -66,18 +66,4 @@ export class CuidadoresService {
         return response.json({status:200, data})
     };
 
-    async addTrabajo(id:UserDto, trabajo:trabajoDto, response:Response) {
-        await this.prisma.cuidador.update({
-            where: {
-                id: id.id
-            },
-            data: {
-                workId: trabajo.id
-            }
-        }).catch((err) => {
-            throw response.json({err});
-        })
-
-        return response.json({status:200, message:"trabajo agregado"});
-    }
 }

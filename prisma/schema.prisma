@@ -26,8 +26,9 @@ model Trabajo {
   id String @id @default(cuid())
   mascota Mascotas? @relation(fields: [petId], references: [id])
   petId String?
+  cuidadorId Cuidador? @relation(fields: [cId], references: [id])
+  cId String?
   direccion String
-  cuidador Cuidador[]
 }
 
 model Cuidador {
@@ -35,6 +36,5 @@ model Cuidador {
   userId String
   estudios String
   experiencias String
-  trabajo Trabajo? @relation(fields: [workId], references: [id])
-  workId String?
+  trabajo Trabajo[]
 }
