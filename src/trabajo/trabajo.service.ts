@@ -16,10 +16,10 @@ export class TrabajoService {
         return response.json({status:201, message:"trabajo creado"});
     }
 
-    async updateTrabajo(nuevoTrabajo:trabajoDto, response:Response): Promise<Response> {
+    async updateTrabajo(id:string, nuevoTrabajo:trabajoDto, response:Response): Promise<Response> {
         await this.prisma.trabajo.update({
             where: {
-                id: nuevoTrabajo.id
+                id: id
             },
             data: {
                 direccion: nuevoTrabajo.direccion

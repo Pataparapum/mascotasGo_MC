@@ -13,9 +13,9 @@ export class TrabajoController {
         return this.trabajoDb.addTrabajo(trabajo, response);
     }
 
-    @Put()
-    put(@Body() nuevoTrabajo:trabajoDto, @Res() response:Response){
-        return this.trabajoDb.updateTrabajo(nuevoTrabajo, response);
+    @Put(':id')
+    put(@Param('id') id:string, @Body() nuevoTrabajo:trabajoDto, @Res() response:Response){
+        return this.trabajoDb.updateTrabajo(id, nuevoTrabajo, response);
     }
 
     @Delete(':id')
@@ -29,7 +29,7 @@ export class TrabajoController {
     }
 
     @Get(':id')
-    getOne(@Param('id') id:string, response:Response){
+    getOne(@Param('id') id:string, @Res() response:Response){
         return this.trabajoDb.getOne(id, response);
     }
 }

@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/co
 import { Response } from 'express';
 import { mascotasDto } from 'src/dto/mascotas.dto';
 import { MascotasService } from './mascotas.service';
-import { UserDto } from 'src/dto/user.dto';
 
 @Controller('mascotas')
 export class MascotasController {
@@ -14,9 +13,9 @@ export class MascotasController {
         return this.mascotaDb.addMascota(mascota, response);
     }
 
-    @Put()
-    put(@Body() nuevaMascota:mascotasDto, @Res() response:Response) {
-        return this.mascotaDb.updateMascota(nuevaMascota, response);
+    @Put(':id')
+    put(@Param('id') id:string, @Body() nuevaMascota:mascotasDto, @Res() response:Response) {
+        return this.mascotaDb.updateMascota(id, nuevaMascota, response);
     }
 
     @Delete(':id')
@@ -24,8 +23,8 @@ export class MascotasController {
         return this.mascotaDb.deleteMascota(mascotaId, response);
     }
 
-    @Get()
-    getAll(@Body() user:UserDto, @Res() response:Response) {
+    @Get('user/:userId')
+    getAll(@Param('userId') user:string, @Res() response:Response) {
         return this.mascotaDb.getAllMascotasFromUser(user, response);
     }
 

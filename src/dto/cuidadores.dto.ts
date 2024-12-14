@@ -16,8 +16,4 @@ export class cuidadoresDto {
     @IsString()
     @IsNotEmpty()
     experiencias:string
-
-    @IsString()
-    workId?:string
-
 }

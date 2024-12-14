@@ -17,10 +17,10 @@ export class MascotasService {
         return response.json({status:201, message:"mascota creada"});
     }
 
-    async updateMascota(nuevaMascota:mascotasDto, response:Response): Promise<Response>{
+    async updateMascota(id:string, nuevaMascota:mascotasDto, response:Response): Promise<Response>{
         await this.prisma.mascotas.update({
             where: {
-                id: nuevaMascota.id
+                id: id
             },
             data: {
                 nombre: nuevaMascota.nombre,
@@ -46,10 +46,10 @@ export class MascotasService {
         return response.json({status: 200, message:"mascota eliminada"});
     }
 
-    async getAllMascotasFromUser(userId:UserDto, response:Response): Promise<Response> {
+    async getAllMascotasFromUser(userId:string, response:Response): Promise<Response> {
         const data = await this.prisma.mascotas.findMany({
             where:{
-                userId: userId.id
+                userId: userId
             }
         }).catch((err) => {
             return response.json({err});
