@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
 import { CuidadoresService } from './cuidadores.service';
 import { Response } from 'express';
-import { cuidadoresDto } from 'src/dto/cuidadores.dto';
+import { cuidadoresDto } from '../dto/cuidadores.dto';
 
 @Controller('cuidadores')
 export class CuidadoresController {

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CuidadoresService } from './cuidadores.service';
 import { CuidadoresController } from './cuidadores.controller';
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from '../prisma.service';
 
 @Module({
   providers: [CuidadoresService, PrismaService],

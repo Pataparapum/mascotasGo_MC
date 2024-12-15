@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { Injectable } from '@nestjs/common';
-import { cuidadoresDto } from 'src/dto/cuidadores.dto';
-import { PrismaService } from 'src/prisma.service';
+import { cuidadoresDto } from '../dto/cuidadores.dto';
+import { PrismaService } from '../prisma.service';
 
 @Injectable()
 export class CuidadoresService {

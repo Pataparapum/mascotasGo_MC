@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Response } from 'express';
-import { trabajoDto } from 'src/dto/trabajo.dto';
-import { PrismaService } from 'src/prisma.service';
+import { trabajoDto } from '../dto/trabajo.dto';
+import { PrismaService } from '../prisma.service';
 
 @Injectable()
 export class TrabajoService {
