@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
 import { TrabajoService } from './trabajo.service';
-import { trabajoDto } from 'src/dto/trabajo.dto';
+import { trabajoDto } from '../dto/trabajo.dto';
 import { response, Response } from 'express';
 
 @Controller('trabajo')
